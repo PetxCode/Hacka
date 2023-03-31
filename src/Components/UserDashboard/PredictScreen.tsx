@@ -23,48 +23,21 @@ import axios from "axios";
 // const liveURL = "https://football-predict-api.onrender.com/api";
 const liveURL = "http//localhost:3366/api";
 
-const Recent = () => {
+const PredictScreen = () => {
   const user = UseAppSelector((state) => state.Client);
-
-  const userSchema = yup
-    .object({
-      teamAScore: yup.string().required("please enter a name"),
-      teamBScore: yup.string().required("please enter an email"),
-      amount: yup.number().required("please enter a username"),
-    })
-    .required();
-  type formData = yup.InferType<typeof userSchema>;
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    reset,
-    register,
-  } = useForm<formData>({
-    resolver: yupResolver(userSchema),
-  });
-
-  const Submit = handleSubmit(async (data, ID) => {
-    // console.log(data);
-    await axios
-      .post(`${liveURL}/${user?._id}/${ID}/create-prediction`, data)
-      .then((res) => res.data);
-  });
 
   const [show, setShow] = useState(false);
 
   const Toggle = () => {
     setShow(!show);
   };
-  const Toggle2 = () => {
-    setShow(false);
-  };
+
   const [allMatches, setAllMatches] = useState([]);
 
   const id = user.data?._id;
 
   const getMatches = async () => {
-    fetch(`http://localhost:3366/api/${id}/view-user-predictions`)
+    fetch(`http://localhost:3366/api/predict/${id}/view-user-predictions`)
       .then((res) => {
         return res.json();
       })
@@ -73,158 +46,42 @@ const Recent = () => {
         setAllMatches(res.data);
       });
   };
-  console.log("I am ID: ", allMatches);
-  useEffect(() => {
-    getMatches();
-  }, []);
 
   useEffect(() => {
-    const getMatches = async () => {
-      await axios.get(`${liveURL}/match/view-match`).then((res) => {
-        console.log("Reading Matches: ", res);
-        // setAllMatches(res.)
-      });
-    };
     getMatches();
   }, []);
 
   return (
     <Container>
       <Wrapper>
-        <Title>View All Matches</Title>
-        <div>Show</div>
+        <Title>View Your Prediction History</Title>
+
         <Table>
           <table>
             <tr>
               <th>Team A</th>
-              <th>Team A</th>
-              <th>Odds</th>
+              <th>Team B</th>
+              <th>Your Prediction</th>
+              <th>Amount Stacked</th>
+              <th>Wining Prize</th>
             </tr>
             {allMatches.map((el: any) => (
               <tr onClick={Toggle} key={el?._id}>
-                <td> {el?.name}</td>
-                <td>number</td>
-                <td>code</td>
-                <button
-                  onClick={() => {
-                    Toggle();
-                  }}
-                >
-                  Predict
-                </button>
-
-                {show ? (
-                  <Slidein>
-                    <Wallets>
-                      <Icon onClick={Toggle2}>
-                        <MdOutlineCancel />
-                      </Icon>
-                      <Card2>
-                        <Circle>
-                          <IoIosFootball />
-                        </Circle>
-
-                        <Wallet>
-                          <p>Predict Your game</p>
-                          <h3></h3>
-                        </Wallet>
-                      </Card2>
-
-                      <Tap>
-                        <h3>Match Details: </h3>
-                        <input type="text" placeholder="Team A :" />
-                      </Tap>
-
-                      <Tap2>
-                        <input type="text" placeholder="Team B :" />
-                      </Tap2>
-
-                      <Tap2>
-                        <input type="text" placeholder="Game Odds :" />
-                      </Tap2>
-
-                      <Tap2>
-                        <input type="text" placeholder="Prize" />
-                      </Tap2>
-
-                      <Holder>
-                        <NavLink
-                          to="/payment"
-                          style={{ textDecoration: "none" }}
-                        >
-                          <button>Play Game</button>
-                        </NavLink>
-
-                        <NavLink
-                          to="/payout"
-                          style={{ textDecoration: "none" }}
-                        >
-                          <button>Checkout</button>
-                        </NavLink>
-                      </Holder>
-                    </Wallets>
-                  </Slidein>
-                ) : null}
+                <td>{el.teamA}</td>
+                <td>{el.teamB}</td>
+                <td>{el.scoreEntry}</td>
+                <td>{el.amount}</td>
+                <td>{el.prize}</td>
               </tr>
             ))}
           </table>
         </Table>
-
-        <BtnHold>
-          <Button>View More</Button>
-        </BtnHold>
-        {show ? (
-          <Slidein>
-            <Wallets>
-              <Icon onClick={Toggle2}>
-                <MdOutlineCancel />
-              </Icon>
-              <Card2>
-                <Circle>
-                  <IoIosFootball />
-                </Circle>
-
-                <Wallet>
-                  <p>Predict Your game</p>
-                  <h3></h3>
-                </Wallet>
-              </Card2>
-
-              <Tap>
-                <h3>Match Details: </h3>
-                <input type="text" placeholder="Team A :" />
-              </Tap>
-
-              <Tap2>
-                <input type="text" placeholder="Team B :" />
-              </Tap2>
-
-              <Tap2>
-                <input type="text" placeholder="Game Odds :" />
-              </Tap2>
-
-              <Tap2>
-                <input type="text" placeholder="Prize" />
-              </Tap2>
-
-              <Holder>
-                <NavLink to="/payment" style={{ textDecoration: "none" }}>
-                  <button>Play Game</button>
-                </NavLink>
-
-                <NavLink to="/payout" style={{ textDecoration: "none" }}>
-                  <button>Checkout</button>
-                </NavLink>
-              </Holder>
-            </Wallets>
-          </Slidein>
-        ) : null}
       </Wrapper>
     </Container>
   );
 };
 
-export default Recent;
+export default PredictScreen;
 const Icon = styled.div`
   position: absolute;
   font-size: 25px;

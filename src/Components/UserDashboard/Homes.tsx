@@ -89,9 +89,7 @@ const Home = () => {
         </Top>
         <br />
         <br />
-        <br />
-        {/* <Cards /> */}
-        {/* <Recent /> */}
+
         <Latesttransact />
       </Wrapper>
     </Container>

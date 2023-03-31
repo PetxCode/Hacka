@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import img from "../Assets/person.png";
 
 import { FaGoogleWallet } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
-
 
 import { NavLink } from "react-router-dom";
 // import { UseAppSelector } from "../Global/Store";
@@ -12,6 +11,8 @@ import { useQuery } from "@tanstack/react-query";
 import Cards from "../Cards";
 import Recent from "../Recent";
 import Latesttransact from "../Latesttransact";
+import { UseAppSelector } from "../../Global/Store";
+import PredictScreen from "../PredictScreen";
 
 // import { getOneAdmin } from "../api/adminEndpoints";
 
@@ -26,32 +27,16 @@ const Table = () => {
     setShow(false);
   };
 
-  // const user = UseAppSelector((state) => state.Admin);
-  // const getAdmin = useQuery({
-  //   queryKey: ["singleAdmin"],
-  //   queryFn: () => getOneAdmin(user?._id),
-  // });
-  // console.log("this is getadmin", getAdmin);
-
   return (
     <Container>
       <Wrapper>
-       
-      
-        <Recent />
-
+        <PredictScreen />
       </Wrapper>
     </Container>
   );
 };
 
 export default Table;
-
-
-
-
-
-
 
 const Slidein = styled.div`
   width: 100%;

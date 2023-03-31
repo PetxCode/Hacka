@@ -25,7 +25,7 @@ const OtherForm: React.FC<iProps> = ({ setShow, show, myID, id }) => {
 
   const Predict = async (ID: any) => {
     await axios.post(
-      `http://localhost:3366/api/predict/642586988cf65cc28765d4c1/${myID}/create-prediction`,
+      `http://localhost:3366/api/predict/${id}/${myID}/create-prediction`,
       {
         teamAScore,
         teamBScore,
