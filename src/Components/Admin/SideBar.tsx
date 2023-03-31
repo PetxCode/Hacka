@@ -77,12 +77,12 @@ const SideBar = () => {
           </NavLink>
         </Staffs>
       ) : null}
-      {/* <Home2>
+      <Home2>
         <Icon2>
           <IoMdPerson />
         </Icon2>
         <NavLink
-          to="/admin-Prediction"
+          to="/admin-trigger"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
@@ -90,9 +90,9 @@ const SideBar = () => {
             };
           }}
         >
-          <Text3>Prediction</Text3>
+          <Text3>Trigger Mail</Text3>
         </NavLink>
-      </Home2> */}
+      </Home2>
 
       <Power
         onClick={() => {

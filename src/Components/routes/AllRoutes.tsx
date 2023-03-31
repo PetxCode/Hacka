@@ -19,6 +19,7 @@ import UserMatch from "../Admin/Start/Dashboard";
 import UserDispayDashboard from "../UserDashboard/Start/Dashboard";
 // import UserMatch from "../UserDashboard/Start/Dashboard";
 import Prediction from "../UserDashboard/viewPrediction/Dashboard";
+import Trigger from "../Admin/Trigger";
 
 const AllRoutes = () => {
   const elements = useRoutes([
@@ -64,6 +65,10 @@ const AllRoutes = () => {
       element: <AdminEnter />,
     },
     {
+      path: "/admin-trigger",
+      element: <Trigger />,
+    },
+    {
       path: "/userMatch",
       element: <UserDispayDashboard />,
     },
@@ -75,10 +80,6 @@ const AllRoutes = () => {
       path: "/Prediction",
       element: <Prediction />,
     },
-    // {
-    //   path: "/Prediction/:ID",
-    //   element: <OtherForm />,
-    // },
   ]);
   return <div>{elements}</div>;
 };

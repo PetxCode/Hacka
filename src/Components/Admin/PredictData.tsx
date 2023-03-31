@@ -24,7 +24,7 @@ const OtherForm: React.FC<iProps> = ({ setShow, show, myID, id }) => {
   const [amount, setAmount] = useState(0);
 
   const Predict = async (ID: any) => {
-    await axios.post(
+    await axios.patch(
       `http://localhost:3366/api/match/${id}/${myID}/score-match`,
       {
         teamAScore,
