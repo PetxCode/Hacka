@@ -1,6 +1,8 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import Dashboard from "../Admin/Dashboard";
+import AdminEnter from "../Admin/AdminEnter";
+import AdminPredictScreen from "../Admin/AdminPres";
+import Dashboard from "../Admin/AdminDashboard";
 import LeaderBoard from "../Admin/LeaderBoard/Dashboard";
 import Match from "../Admin/Start/Dashboard";
 // import Users from "../Admin/view/Dashboard";
@@ -13,7 +15,9 @@ import HomeSreeen from "../landingPage/HomeSreeen";
 import UserDashboard from "../UserDashboard/Dashboard";
 import UserLeaderboard from "../UserDashboard/LeaderBoard/Dashboard";
 import OtherForm from "../UserDashboard/PredictData";
-import UserMatch from "../UserDashboard/Start/Dashboard";
+import UserMatch from "../Admin/Start/Dashboard";
+import UserDispayDashboard from "../UserDashboard/Start/Dashboard";
+// import UserMatch from "../UserDashboard/Start/Dashboard";
 import Prediction from "../UserDashboard/viewPrediction/Dashboard";
 
 const AllRoutes = () => {
@@ -56,7 +60,15 @@ const AllRoutes = () => {
       element: <UserLeaderboard />,
     },
     {
+      path: "/admin-useViewBoard",
+      element: <AdminEnter />,
+    },
+    {
       path: "/userMatch",
+      element: <UserDispayDashboard />,
+    },
+    {
+      path: "/admin-userMatch",
       element: <UserMatch />,
     },
     {

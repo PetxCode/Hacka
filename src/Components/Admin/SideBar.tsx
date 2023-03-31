@@ -35,7 +35,7 @@ const SideBar = () => {
           <MdDashboard />
         </Icon2>
         <NavLink
-          to="/userdashboard"
+          to="/admindashboard"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
@@ -52,7 +52,7 @@ const SideBar = () => {
           <BsClipboardData />
         </Icon2>
         <NavLink
-          to="/useViewBoard"
+          to="/admin-useViewBoard"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
@@ -72,17 +72,17 @@ const SideBar = () => {
       </Home2>
       {show ? (
         <Staffs>
-          <NavLink to="/userMatch" style={{ textDecoration: "none" }}>
+          <NavLink to="/admin-userMatch" style={{ textDecoration: "none" }}>
             <p>start-match</p>
           </NavLink>
         </Staffs>
       ) : null}
-      <Home2>
+      {/* <Home2>
         <Icon2>
           <IoMdPerson />
         </Icon2>
         <NavLink
-          to="/Prediction"
+          to="/admin-Prediction"
           style={({ isActive }) => {
             return {
               textDecoration: isActive ? "none" : "none",
@@ -92,7 +92,7 @@ const SideBar = () => {
         >
           <Text3>Prediction</Text3>
         </NavLink>
-      </Home2>
+      </Home2> */}
 
       <Power
         onClick={() => {
@@ -120,7 +120,7 @@ const SideBar = () => {
                 swalWithBootstrapButtons.fire(
                   "logout successful!",
                   "logout successful.",
-                  "success"
+                  "success",
                   //   navigate("/optionsignin")
                 );
               } else if (
@@ -131,7 +131,7 @@ const SideBar = () => {
                 swalWithBootstrapButtons.fire(
                   "Cancelled",
                   "still on dashboard :)",
-                  "error"
+                  "error",
                 );
               }
             });

@@ -23,13 +23,6 @@ const Home = () => {
     setShow(false);
   };
 
-  // const user = UseAppSelector((state) => state.Admin);
-  // const getAdmin = useQuery({
-  //   queryKey: ["singleAdmin"],
-  //   queryFn: () => getOneAdmin(user?._id),
-  // });
-  // console.log("this is getadmin", getAdmin);
-
   return (
     <Container>
       <Wrapper>

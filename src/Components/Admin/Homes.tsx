@@ -40,7 +40,8 @@ const Home = () => {
 
   console.log("I am user24: ", user?.data!._id);
   // console.log("I am user: ", userFile);
-const id = user?.data!._id;
+  const id = user?.data!._id;
+
   const userSchema = yup
     .object({
       teamA: yup.string().required(),
@@ -64,14 +65,11 @@ const id = user?.data!._id;
   const Submit = handleSubmit(async (data) => {
     const { teamA, teamB, odds } = data;
 
-    await axios.post(
-      `http://localhost:3366/api/match/${id}/create-match`,
-      {
-        teamA,
-        teamB,
-        Odds: odds,
-      },
-    );
+    await axios.post(`http://localhost:3366/api/match/${id}/create-match`, {
+      teamA,
+      teamB,
+      Odds: odds,
+    });
 
     Toggle();
   });
@@ -143,9 +141,7 @@ const id = user?.data!._id;
           ) : null}
         </Top>
         <br />
-        <br />
-        <br />
-        <Cards />
+
         <Recent />
         <Latesttransact />
       </Wrapper>

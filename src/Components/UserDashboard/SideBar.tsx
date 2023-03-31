@@ -64,13 +64,13 @@ const SideBar = () => {
         </NavLink>
       </Home2>
 
-      <Home2>
+      {/* <Home2>
         <Icon2>
           <MdOutlineSportsSoccer />
         </Icon2>
         <Text3 onClick={Toggle}>match</Text3>
-      </Home2>
-      {show ? (
+      </Home2> */}
+      {/* {show ? (
         <Staffs>
           <NavLink to="/userMatch" style={{ textDecoration: "none" }}>
             <p>start-match</p>
@@ -92,7 +92,7 @@ const SideBar = () => {
         >
           <Text3>Prediction</Text3>
         </NavLink>
-      </Home2>
+      </Home2> */}
 
       <Power
         onClick={() => {
@@ -120,7 +120,7 @@ const SideBar = () => {
                 swalWithBootstrapButtons.fire(
                   "logout successful!",
                   "logout successful.",
-                  "success"
+                  "success",
                   //   navigate("/optionsignin")
                 );
               } else if (
@@ -131,7 +131,7 @@ const SideBar = () => {
                 swalWithBootstrapButtons.fire(
                   "Cancelled",
                   "still on dashboard :)",
-                  "error"
+                  "error",
                 );
               }
             });

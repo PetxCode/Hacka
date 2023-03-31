@@ -6,18 +6,18 @@ import Table from './Table'
 
 
 
-const Dashboard = () => {
+const UserDispayDashboard = () => {
   return (
     <Container>
-          <Dashhead />
+      <Dashhead />
       <SideBar />
-  
-  <Table />
-    </Container>
-  )
-}
 
-export default Dashboard
+      <Table />
+    </Container>
+  );
+};
+
+export default UserDispayDashboard;
 const Container = styled.div`
     display: flex;
     flex-direction: column;

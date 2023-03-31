@@ -14,7 +14,7 @@ import { UseAppSelector } from "../Global/Store";
 
 const Dashhead = () => {
   const navigate = useNavigate();
-const user = UseAppSelector((state)=> state.Client)
+const user = UseAppSelector((state) => state?.Client);
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show4, setShow4] = useState(false);
